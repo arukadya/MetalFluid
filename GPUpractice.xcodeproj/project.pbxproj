@@ -15,6 +15,7 @@
 		67E1B8B52A9CD6EC00501051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E1B8B32A9CD6EC00501051 /* LaunchScreen.storyboard */; };
 		67E1B8BD2A9CD7BC00501051 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8BC2A9CD7BC00501051 /* Shaders.metal */; };
 		67E1B8BF2A9DD49A00501051 /* DispatchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8BE2A9DD49A00501051 /* DispatchConfig.swift */; };
+		67E1B8C12AA23CF500501051 /* output in Resources */ = {isa = PBXBuildFile; fileRef = 67E1B8C02AA23CF500501051 /* output */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		67E1B8B62A9CD6EC00501051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67E1B8BC2A9CD7BC00501051 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		67E1B8BE2A9DD49A00501051 /* DispatchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchConfig.swift; sourceTree = "<group>"; };
+		67E1B8C02AA23CF500501051 /* output */ = {isa = PBXFileReference; lastKnownFileType = folder; path = output; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		67E1B89C2A9CD6EB00501051 = {
 			isa = PBXGroup;
 			children = (
+				67E1B8C02AA23CF500501051 /* output */,
 				67E1B8A72A9CD6EB00501051 /* MetalPractice */,
 				67E1B8A62A9CD6EB00501051 /* Products */,
 			);
@@ -134,6 +137,7 @@
 				67E1B8B52A9CD6EC00501051 /* LaunchScreen.storyboard in Resources */,
 				67E1B8B22A9CD6EC00501051 /* Assets.xcassets in Resources */,
 				67E1B8B02A9CD6EB00501051 /* Main.storyboard in Resources */,
+				67E1B8C12AA23CF500501051 /* output in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

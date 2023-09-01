@@ -28,6 +28,7 @@ class ViewController: UIViewController, MTKViewDelegate {
     private var destTexture: MTLTexture!
     private var vertexBuffer: MTLBuffer!
     private var timeBuffer: MTLBuffer!
+    private var resolutionBuffer: MTLBuffer!
     private var texCoordBuffer: MTLBuffer!
     private var renderPipeline: MTLRenderPipelineState!
     private var computePipeline: MTLComputePipelineState!
@@ -64,7 +65,6 @@ class ViewController: UIViewController, MTKViewDelegate {
         // MTKViewのセットアップ
         mtkView.device = device
         mtkView.delegate = self
-        
     }
 
     private func makeBuffers() {
@@ -77,6 +77,11 @@ class ViewController: UIViewController, MTKViewDelegate {
         
         timeBuffer = device.makeBuffer(length: MemoryLayout<Float>.size, options: [])
         timeBuffer.label = "time"
+        
+        let screenSize = UIScreen.main.nativeBounds.size
+        let resolutionData = [Float(screenSize.width), Float(screenSize.height)]
+        let resolutionSize = resolutionData.count * MemoryLayout<Float>.size
+        resolutionBuffer = device.makeBuffer(bytes: resolutionData, length: resolutionSize, options: [])
     }
     
     private func makePipeline(pixelFormat: MTLPixelFormat) {
@@ -113,12 +118,6 @@ class ViewController: UIViewController, MTKViewDelegate {
         // ドローアブルを取得
         guard let drawable = view.currentDrawable else {return}
         guard let in_texture = texture else {return}
-
-        var resolutionBuffer: MTLBuffer! = nil
-        let screenSize = UIScreen.main.nativeBounds.size
-        let resolutionData = [Float(screenSize.width), Float(screenSize.height)]
-        let resolutionSize = resolutionData.count * MemoryLayout<Float>.size
-        resolutionBuffer = device.makeBuffer(bytes: resolutionData, length: resolutionSize, options: [])
         // コマンドバッファを作成
         guard let commandBuffer = commandQueue.makeCommandBuffer() else {fatalError()}
         guard let RcommandBuffer = commandQueue.makeCommandBuffer() else {fatalError()}
