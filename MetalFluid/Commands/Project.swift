@@ -62,7 +62,7 @@ class Project : ShaderCommand{
     static let functionName: String = "project"
     private let pipelineState: MTLComputePipelineState
     private var timeStep: Float;
-    private static let MaxIterationCount = 10
+    private static let MaxIterationCount = 20
     init(device: MTLDevice, library: MTLLibrary, timestep:Float) throws {
         self.pipelineState = try type(of: self).makePiplelineState(device: device, library: library)
         self.timeStep = timestep;

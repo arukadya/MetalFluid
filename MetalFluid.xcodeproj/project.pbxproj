@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		676284C52AB0CCE700F1A810 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676284C42AB0CCE700F1A810 /* Project.swift */; };
+		676284C72AB6B69D00F1A810 /* Advect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 676284C62AB6B69D00F1A810 /* Advect.metal */; };
+		676284C92AB6B6EA00F1A810 /* Project.metal in Sources */ = {isa = PBXBuildFile; fileRef = 676284C82AB6B6EA00F1A810 /* Project.metal */; };
+		676284CB2AB6B70C00F1A810 /* Force.metal in Sources */ = {isa = PBXBuildFile; fileRef = 676284CA2AB6B70C00F1A810 /* Force.metal */; };
 		67E1B8A92A9CD6EB00501051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8A82A9CD6EB00501051 /* AppDelegate.swift */; };
 		67E1B8AB2A9CD6EB00501051 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8AA2A9CD6EB00501051 /* SceneDelegate.swift */; };
 		67E1B8AD2A9CD6EB00501051 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8AC2A9CD6EB00501051 /* ViewController.swift */; };
@@ -31,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		676284C42AB0CCE700F1A810 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		676284C62AB6B69D00F1A810 /* Advect.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Advect.metal; sourceTree = "<group>"; };
+		676284C82AB6B6EA00F1A810 /* Project.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Project.metal; sourceTree = "<group>"; };
+		676284CA2AB6B70C00F1A810 /* Force.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Force.metal; sourceTree = "<group>"; };
 		67E1B8A52A9CD6EB00501051 /* MetalFluid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalFluid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E1B8A82A9CD6EB00501051 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E1B8AA2A9CD6EB00501051 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				67E1B8C92AA8D12A00501051 /* Fluid.metal */,
+				676284CA2AB6B70C00F1A810 /* Force.metal */,
+				676284C62AB6B69D00F1A810 /* Advect.metal */,
+				676284C82AB6B6EA00F1A810 /* Project.metal */,
 				67E1B8CB2AA8D12C00501051 /* Shaders.metal */,
 			);
 			path = Shaders;
@@ -202,7 +211,9 @@
 				67E1B8D92AA992B700501051 /* Renderer.Simulator.swift in Sources */,
 				67E1B8DD2AA997A700501051 /* Renderer.Visualizer.swift in Sources */,
 				67E1B8E52AAED99500501051 /* CalForce.swift in Sources */,
+				676284C92AB6B6EA00F1A810 /* Project.metal in Sources */,
 				67E1B8AD2A9CD6EB00501051 /* ViewController.swift in Sources */,
+				676284C72AB6B69D00F1A810 /* Advect.metal in Sources */,
 				67E1B8CA2AA8D12A00501051 /* Fluid.metal in Sources */,
 				67E1B8DB2AA9937C00501051 /* Fluid.swift in Sources */,
 				67E1B8DF2AA9982900501051 /* Slab.swift in Sources */,
@@ -213,6 +224,7 @@
 				67E1B8D72AA9918800501051 /* Renderer.swift in Sources */,
 				67E1B8AB2A9CD6EB00501051 /* SceneDelegate.swift in Sources */,
 				676284C52AB0CCE700F1A810 /* Project.swift in Sources */,
+				676284CB2AB6B70C00F1A810 /* Force.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

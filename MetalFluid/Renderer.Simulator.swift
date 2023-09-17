@@ -4,7 +4,7 @@ import MetalKit
 extension Renderer {
     class Simulator {
         private weak var device: MTLDevice?
-        private var timestep:Float = 0.05
+        private var timestep:Float = 0.01
         // Resources
         private(set) var fluid: Fluid
         
@@ -68,12 +68,12 @@ extension Renderer {
             fluid.velocity_x.swap()
             fluid.velocity_y.swap()
 
-            project.encode(in: buffer, SPressure: fluid.pressure, VelocityX: fluid.velocity_x.source, VelocityY: fluid.velocity_y.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source)
-            //encodeでswapしてるので不要
-            divergenceX.encode(in: buffer,inVelocityX: fluid.velocity_x.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityX: fluid.velocity_x.dest)
-            divergenceY.encode(in: buffer, inVelocityY: fluid.velocity_y.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityY: fluid.velocity_y.dest)
-            fluid.velocity_x.swap()
-            fluid.velocity_y.swap()
+//            project.encode(in: buffer, SPressure: fluid.pressure, VelocityX: fluid.velocity_x.source, VelocityY: fluid.velocity_y.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source)
+//            //encodeでswapしてるので不要
+//            divergenceX.encode(in: buffer,inVelocityX: fluid.velocity_x.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityX: fluid.velocity_x.dest)
+//            divergenceY.encode(in: buffer, inVelocityY: fluid.velocity_y.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityY: fluid.velocity_y.dest)
+//            fluid.velocity_x.swap()
+//            fluid.velocity_y.swap()
             
             advectVX.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, outVelocityX: fluid.velocity_x.dest)
             advectVY.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, outVelocityY: fluid.velocity_y.dest)
@@ -88,8 +88,8 @@ extension Renderer {
             fluid.density_amb.swap()
 
             
-//            advect.encode(in:buffer,source: fluid.templature.source, dest: fluid.templature.dest)
-//            fluid.force.swap()
+//            advect.encode(in:buffer,source: fluid.density.source, dest: fluid.density.dest)
+//            fluid.density.swap()
         }
         
         var currentTexture: MTLTexture {
