@@ -48,12 +48,12 @@ kernel void calForce(texture2d<float, access::write> outFTexture [[ texture(0) ]
                   constant float &T_amb [[buffer(0)]]
                   ){
     float g0 = 9.8;
-    float beta = 1.0;
+    float beta = 50;
     float t_amb = T_amb;
     float scale = 0.1;
     float2 dir_gravity = {0.0,1.0};
-    float rho = RTexture.read(gid).y;
-    float rho_amb = R_ambTexture.read(gid).y;
+    float rho = RTexture.read(gid).x;
+    float rho_amb = R_ambTexture.read(gid).x;
     float temp = TTexture.read(gid).x;
     float2 gravity = g0*(rho +rho_amb)*dir_gravity;
     float2 buoyancy = -beta*(temp - t_amb)*dir_gravity;

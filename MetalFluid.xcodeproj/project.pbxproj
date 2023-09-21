@@ -19,7 +19,6 @@
 		67E1B8B52A9CD6EC00501051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E1B8B32A9CD6EC00501051 /* LaunchScreen.storyboard */; };
 		67E1B8BF2A9DD49A00501051 /* DispatchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8BE2A9DD49A00501051 /* DispatchConfig.swift */; };
 		67E1B8C12AA23CF500501051 /* output in Resources */ = {isa = PBXBuildFile; fileRef = 67E1B8C02AA23CF500501051 /* output */; };
-		67E1B8CA2AA8D12A00501051 /* Fluid.metal in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8C92AA8D12A00501051 /* Fluid.metal */; };
 		67E1B8CC2AA8D12C00501051 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8CB2AA8D12C00501051 /* Shaders.metal */; };
 		67E1B8D12AA975D600501051 /* Advect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8D02AA975D600501051 /* Advect.swift */; };
 		67E1B8D52AA978FE00501051 /* ShaderCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1B8D42AA978FE00501051 /* ShaderCommand.swift */; };
@@ -47,7 +46,6 @@
 		67E1B8B62A9CD6EC00501051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67E1B8BE2A9DD49A00501051 /* DispatchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchConfig.swift; sourceTree = "<group>"; };
 		67E1B8C02AA23CF500501051 /* output */ = {isa = PBXFileReference; lastKnownFileType = folder; path = output; sourceTree = "<group>"; };
-		67E1B8C92AA8D12A00501051 /* Fluid.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Fluid.metal; sourceTree = "<group>"; };
 		67E1B8CB2AA8D12C00501051 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		67E1B8D02AA975D600501051 /* Advect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advect.swift; sourceTree = "<group>"; };
 		67E1B8D42AA978FE00501051 /* ShaderCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderCommand.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		67E1B8CD2AA8D14300501051 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				67E1B8C92AA8D12A00501051 /* Fluid.metal */,
 				676284CA2AB6B70C00F1A810 /* Force.metal */,
 				676284C62AB6B69D00F1A810 /* Advect.metal */,
 				676284C82AB6B6EA00F1A810 /* Project.metal */,
@@ -214,7 +211,6 @@
 				676284C92AB6B6EA00F1A810 /* Project.metal in Sources */,
 				67E1B8AD2A9CD6EB00501051 /* ViewController.swift in Sources */,
 				676284C72AB6B69D00F1A810 /* Advect.metal in Sources */,
-				67E1B8CA2AA8D12A00501051 /* Fluid.metal in Sources */,
 				67E1B8DB2AA9937C00501051 /* Fluid.swift in Sources */,
 				67E1B8DF2AA9982900501051 /* Slab.swift in Sources */,
 				67E1B8D52AA978FE00501051 /* ShaderCommand.swift in Sources */,

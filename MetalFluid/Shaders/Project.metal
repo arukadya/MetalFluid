@@ -20,8 +20,8 @@ kernel void project(texture2d<float, access::read> inPressure [[texture(0)]],
     uint Nx = Density.get_width();
     uint Ny = Density.get_height();
     float2 delta = float2(1.0/Density.get_width(),1.0/Density.get_height());
-    float rho_tgt = Density.read(gridPosition).y;
-    float rho_amb = Density_amb.read(gridPosition).y;
+    float rho_tgt = Density.read(gridPosition).x;
+    float rho_amb = Density_amb.read(gridPosition).x;
     float rho = rho_tgt + rho_amb;
     float scale = dt/(rho*delta.x*delta.y);//左辺の係数部分
     float4 col = float4(0.0);
@@ -76,8 +76,8 @@ kernel void divergenceX(
     uint Nx = inVelocityX.get_width();
     uint Ny = inVelocityX.get_height();
     float2 delta = float2(1.0/Density.get_width(),1.0/Density.get_height());
-    float rho_tgt = Density.read(gridPosition).y;
-    float rho_amb = Density_amb.read(gridPosition).y;
+    float rho_tgt = Density.read(gridPosition).x;
+    float rho_amb = Density_amb.read(gridPosition).x;
     float rho = rho_tgt + rho_amb;
     if(gridPosition.x == 0 || gridPosition.x == Nx-1){
         return;
@@ -104,8 +104,8 @@ kernel void divergenceY(
     uint Nx = inVelocityY.get_width();
     uint Ny = inVelocityY.get_height();
     float2 delta = float2(1.0/Density.get_width(),1.0/Density.get_height());
-    float rho_tgt = Density.read(gridPosition).y;
-    float rho_amb = Density_amb.read(gridPosition).y;
+    float rho_tgt = Density.read(gridPosition).x;
+    float rho_amb = Density_amb.read(gridPosition).x;
     float rho = rho_tgt + rho_amb;
     if(gridPosition.y == 0 || gridPosition.y == Ny-1){
         return;

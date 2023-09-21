@@ -10,7 +10,7 @@ struct Fluid {
     static let floatFormat: SurfaceFloatFormat = .float
     static let densityComponents: Int = 4
     static let ForceComponents: Int = 4
-    static let range: Int = 50
+    static let range: Int = 30
     static let T_amb:Float = 25.0
     let width: Int
     let height: Int
@@ -170,8 +170,8 @@ struct Fluid {
             for j in 0..<width {
                 if((i >= height/3 * 2 - range && i <= height/3 * 2 + range)
                    && (j >= width/2 - range && j <= width/2 + range)){
-                    initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents] = 0/255
-                    initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 1] = 255/255
+                    initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents] = 255/255
+                    initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 1] = 0/255
                     initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 2] = 0/255
                     initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 3] = 1.0
                 }
@@ -210,8 +210,8 @@ struct Fluid {
         var initialGrid: [Float] = Array(repeating: 0, count: width * height * Fluid.densityComponents)
         for i in 0..<height {
             for j in 0..<width {
-                initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents] = 0/255
-                initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 1] = 127/255
+                initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents] = 127/255
+                initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 1] = 0/255
                 initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 2] = 0/255
                 initialGrid[j*Fluid.densityComponents + i*width*Fluid.densityComponents + 3] = 1.0
             }

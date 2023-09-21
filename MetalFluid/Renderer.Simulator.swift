@@ -4,12 +4,11 @@ import MetalKit
 extension Renderer {
     class Simulator {
         private weak var device: MTLDevice?
-        private var timestep:Float = 0.01
+        private var timestep:Float = 0.1
         // Resources
         private(set) var fluid: Fluid
         
         // Commands
-        private let advect: Advect
         
         private let project: Project
         private let divergenceX: DivergenceX
@@ -26,7 +25,6 @@ extension Renderer {
             self.device = device
             
             do {
-                advect = try Advect(device: device, library: library)
                 advectVX = try AdvectVX(device: device, library: library, timestep: timestep)
                 advectVY = try AdvectVY(device: device, library: library, timestep: timestep)
                 advectCenter = try AdvectCenter(device: device, library: library, timestep: timestep)
@@ -68,21 +66,22 @@ extension Renderer {
             fluid.velocity_x.swap()
             fluid.velocity_y.swap()
 
-//            project.encode(in: buffer, SPressure: fluid.pressure, VelocityX: fluid.velocity_x.source, VelocityY: fluid.velocity_y.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source)
-//            //encodeでswapしてるので不要
-//            divergenceX.encode(in: buffer,inVelocityX: fluid.velocity_x.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityX: fluid.velocity_x.dest)
-//            divergenceY.encode(in: buffer, inVelocityY: fluid.velocity_y.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityY: fluid.velocity_y.dest)
-//            fluid.velocity_x.swap()
-//            fluid.velocity_y.swap()
+            project.encode(in: buffer, SPressure: fluid.pressure, VelocityX: fluid.velocity_x.source, VelocityY: fluid.velocity_y.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source)
+//            encodeでswapしてるので不要
+            divergenceX.encode(in: buffer,inVelocityX: fluid.velocity_x.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityX: fluid.velocity_x.dest)
+            divergenceY.encode(in: buffer, inVelocityY: fluid.velocity_y.source, Pressure: fluid.pressure.source, Density: fluid.density.source, Density_amb: fluid.density_amb.source, outVelocityY: fluid.velocity_y.dest)
+            fluid.velocity_x.swap()
+            fluid.velocity_y.swap()
             
             advectVX.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, outVelocityX: fluid.velocity_x.dest)
             advectVY.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, outVelocityY: fluid.velocity_y.dest)
             fluid.velocity_x.swap()
             fluid.velocity_y.swap()
 
-            advectCenter.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, source: fluid.density.source, target: fluid.density.dest)
+            
             advectCenter.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, source: fluid.density_amb.source, target: fluid.density_amb.dest)
             advectCenter.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, source: fluid.templature.source, target: fluid.templature.dest)
+            advectCenter.encode(in: buffer, inVelocityX: fluid.velocity_x.source, inVelocityY: fluid.velocity_y.source, source: fluid.density.source, target: fluid.density.dest)
             fluid.templature.swap()
             fluid.density.swap()
             fluid.density_amb.swap()
