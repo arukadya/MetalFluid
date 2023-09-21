@@ -1,10 +1,3 @@
-//
-//  Renderer.Visualizer.swift
-//  MetalFluid
-//
-//  Created by 須之内俊樹 on 2023/09/07.
-//
-
 import Foundation
 import MetalKit
 

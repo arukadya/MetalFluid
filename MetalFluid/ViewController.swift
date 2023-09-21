@@ -1,17 +1,6 @@
 import UIKit
 import MetalKit
 
-//let vertexData: [Float] = [-1, -1, 0, 1,
-//                            1, -1, 0, 1,
-//                           -1,  1, 0, 1,
-//                            1,  1, 0, 1]
-
-//let textureCoordinateData: [Float] = [0, 1,
-//                                      1, 1,
-//                                      0, 0,
-//                                      1, 0]
-//let startTime:Float = 0.0
-
 class ViewController: UIViewController, MTKViewDelegate {
 
     private let device = MTLCreateSystemDefaultDevice()!
